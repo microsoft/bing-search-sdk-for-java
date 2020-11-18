@@ -84,6 +84,6 @@ public interface VideoSearchClient {
      * Gets the Videos object to access its operations.
      * @return the Videos object.
      */
-    Videos videos();
+    Videosinterface videos();
 
 }
