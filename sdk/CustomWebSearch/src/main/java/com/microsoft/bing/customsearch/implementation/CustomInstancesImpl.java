@@ -56,7 +56,7 @@ public class CustomInstancesImpl implements CustomInstances {
     interface CustomInstancesService {
         @Headers({ "Content-Type: application/json; charset=utf-8", "x-ms-logging-context: com.microsoft.bing.customsearch.CustomInstances search" })
         @GET("search")
-        Observable<Response<ResponseBody>> search(@Header("X-BingApis-SDK") String xBingApisSDK, @Header("Accept-Language") String acceptLanguage, @Header("User-Agent") String userAgent, @Header("X-MSEdge-ClientID") String clientId, @Header("X-MSEdge-ClientIP") String clientIp, @Header("X-Search-Location") String location, @Query("customConfig") String customConfig, @Query("cc") String countryCode, @Query("count") Integer count, @Query("mkt") String market, @Query("offset") Integer offset, @Query("q") String query, @Query("safeSearch") SafeSearch safeSearch, @Query("setLang") String setLang, @Query("textDecorations") Boolean textDecorations, @Query("textFormat") TextFormat textFormat, @Header("User-Agent") String userAgent2;
+        Observable<Response<ResponseBody>> search(@Header("X-BingApis-SDK") String xBingApisSDK, @Header("Accept-Language") String acceptLanguage, @Header("User-Agent") String userAgent, @Header("X-MSEdge-ClientID") String clientId, @Header("X-MSEdge-ClientIP") String clientIp, @Header("X-Search-Location") String location, @Query("customConfig") String customConfig, @Query("cc") String countryCode, @Query("count") Integer count, @Query("mkt") String market, @Query("offset") Integer offset, @Query("q") String query, @Query("safeSearch") SafeSearch safeSearch, @Query("setLang") String setLang, @Query("textDecorations") Boolean textDecorations, @Query("textFormat") TextFormat textFormat, @Header("User-Agent") String userAgent2);
 
     }
 

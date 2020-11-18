@@ -41,7 +41,7 @@ import rx.Observable;
  * An instance of this class provides access to all the operations defined
  * in Videos.
  */
-public class VideosImpl implements com.microsoft.bing.videosearch.Videos {
+public class VideosImpl implements com.microsoft.bing.videosearch.Videosinterface {
     /** The Retrofit service to perform REST calls. */
     private VideosService service;
     /** The service client containing this operation class. */
