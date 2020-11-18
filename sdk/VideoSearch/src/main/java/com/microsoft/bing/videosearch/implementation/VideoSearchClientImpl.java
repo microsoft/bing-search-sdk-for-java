@@ -102,13 +102,13 @@ public class VideoSearchClientImpl extends AzureServiceClient implements VideoSe
     /**
      * The Videos object to access its operations.
      */
-    private VideosInterface videos;
+    private Videos videos;
 
     /**
      * Gets the Videos object to access its operations.
      * @return the Videos object.
      */
-    public VideosInterface videos() {
+    public Videos videos() {
         return this.videos;
     }
 
