@@ -30,3 +30,22 @@ jobs:
       mavenAuthenticateFeed: false
       effectivePomSkip: false
       sonarQubeRunAnalysis: false
+
+- job: 'NewsSearch'
+
+  pool:
+    vmImage: 'windows-2019'
+
+  steps:
+  - task: Maven@3
+    inputs:
+      mavenPomFile: 'sdk/NewsSearch/pom.xml'
+      publishJUnitResults: true
+      testResultsFiles: '**/surefire-reports/TEST-*.xml'
+      testRunTitle: 'NewsSearch'
+      javaHomeOption: 'JDKVersion'
+      mavenVersionOption: 'Default'
+      mavenOptions: '-Xmx3072m'
+      mavenAuthenticateFeed: false
+      effectivePomSkip: false
+      sonarQubeRunAnalysis: false
