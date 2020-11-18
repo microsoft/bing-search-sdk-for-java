@@ -20,8 +20,8 @@ import javax.net.ssl.HttpsURLConnection;
  * 3. download the latest gson .jar file online, and place it in the "lib" folder
  * 4. replace the subscriptionKey value with your valid Cognitive services subscription key
  * 5. run the following commands, replacing "lib/gson-2.8.5.jar" with your .jar file:
- * javac -d bin -sourcepath src -cp lib/gson-2.8.5.jar src/BingImageSearchv7Quickstart.java
- * java -cp bin;lib/gson-2.8.5.jar BingImageSearchv7Quickstart
+ * javac -d bin -sourcepath src -cp lib/gson-2.8.5.jar src/BingImageSearchv7.java
+ * java -cp bin;lib/gson-2.8.5.jar BingImageSearchv7
  */
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -29,7 +29,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.JsonArray;
 
-public class BingImageSearchv7Quickstart {
+public class BingImageSearchv7 {
 
 // ***********************************************
 // *** Update or verify the following values. ***
