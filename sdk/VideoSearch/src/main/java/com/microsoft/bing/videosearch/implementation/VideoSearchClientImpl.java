@@ -10,7 +10,7 @@ package com.microsoft.bing.videosearch.implementation;
 
 import com.microsoft.azure.AzureClient;
 import com.microsoft.azure.AzureServiceClient;
-import com.microsoft.bing.videosearch.Videosinterface;
+import com.microsoft.bing.videosearch.VideosInterface;
 import com.microsoft.bing.videosearch.VideoSearchClient;
 import com.microsoft.rest.credentials.ServiceClientCredentials;
 import com.microsoft.rest.RestClient;
@@ -102,13 +102,13 @@ public class VideoSearchClientImpl extends AzureServiceClient implements VideoSe
     /**
      * The Videos object to access its operations.
      */
-    private Videos videos;
+    private VideosInterface videos;
 
     /**
      * Gets the Videos object to access its operations.
      * @return the Videos object.
      */
-    public Videos videos() {
+    public VideosInterface videos() {
         return this.videos;
     }
 
