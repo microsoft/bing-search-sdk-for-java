@@ -117,4 +117,3 @@ public class BingImageSearchv7Quickstart {
         }
     }
 }
-}
