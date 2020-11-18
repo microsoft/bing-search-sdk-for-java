@@ -179,7 +179,7 @@ public class AutoSuggestClientImpl extends AzureServiceClient implements AutoSug
     interface AutoSuggestClientService {
         @Headers({ "Content-Type: application/json; charset=utf-8", "x-ms-logging-context: com.microsoft.bing.autosuggest.AutoSuggestClient autoSuggest" })
         @GET("Suggestions")
-        Observable<Response<ResponseBody>> autoSuggest(@Header("X-BingApis-SDK") String xBingApisSDK, @Header("Accept-Language") String acceptLanguage, @Header("Pragma") String pragma, @Header("User-Agent") String userAgent, @Header("X-MSEdge-ClientID") String clientId, @Header("X-MSEdge-ClientIP") String clientIp, @Header("X-Search-Location") String location, @Query("cc") String countryCode, @Query("mkt") String market, @Query("q") String query, @Query("safeSearch") SafeSearch safeSearch, @Query("setLang") String setLang, @Query("ResponseFormat") String responseFormat1);
+        Observable<Response<ResponseBody>> autoSuggest(@Header("X-BingApis-SDK") String xBingApisSDK, @Header("Accept-Language") String acceptLanguage, @Header("Pragma") String pragma, @Header("User-Agent") String userAgent, @Header("X-MSEdge-ClientID") String clientId, @Header("X-MSEdge-ClientIP") String clientIp, @Header("X-Search-Location") String location, @Query("cc") String countryCode, @Query("mkt") String market, @Query("q") String query, @Query("safeSearch") SafeSearch safeSearch, @Query("setLang") String setLang, @Query("ResponseFormat") String responseFormat1, null);
 
     }
 
