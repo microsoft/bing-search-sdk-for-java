@@ -10,7 +10,7 @@ package com.microsoft.bing.imagesearch.implementation;
 
 import com.microsoft.azure.AzureClient;
 import com.microsoft.azure.AzureServiceClient;
-import com.microsoft.bing.imagesearch.Images;
+import com.microsoft.bing.imagesearch.ImagesInterface;
 import com.microsoft.bing.imagesearch.ImageSearchClient;
 import com.microsoft.rest.credentials.ServiceClientCredentials;
 import com.microsoft.rest.RestClient;

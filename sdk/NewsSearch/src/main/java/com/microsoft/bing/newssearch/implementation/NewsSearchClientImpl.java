@@ -10,7 +10,7 @@ package com.microsoft.bing.newssearch.implementation;
 
 import com.microsoft.azure.AzureClient;
 import com.microsoft.azure.AzureServiceClient;
-import com.microsoft.bing.newssearch.News;
+import com.microsoft.bing.newssearch.NewsInterface;
 import com.microsoft.bing.newssearch.NewsSearchClient;
 import com.microsoft.rest.credentials.ServiceClientCredentials;
 import com.microsoft.rest.RestClient;

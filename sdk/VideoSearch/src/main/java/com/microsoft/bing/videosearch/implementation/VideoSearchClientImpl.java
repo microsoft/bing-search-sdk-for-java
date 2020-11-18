@@ -10,7 +10,7 @@ package com.microsoft.bing.videosearch.implementation;
 
 import com.microsoft.azure.AzureClient;
 import com.microsoft.azure.AzureServiceClient;
-import com.microsoft.bing.videosearch.Videos;
+import com.microsoft.bing.videosearch.Videosinterface;
 import com.microsoft.bing.videosearch.VideoSearchClient;
 import com.microsoft.rest.credentials.ServiceClientCredentials;
 import com.microsoft.rest.RestClient;

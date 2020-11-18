@@ -17,6 +17,7 @@ import com.microsoft.bing.imagesearch.models.ImageCropType;
 import com.microsoft.bing.imagesearch.models.ImageInsightModule;
 import com.microsoft.bing.imagesearch.models.ImageInsights;
 import com.microsoft.bing.imagesearch.models.ImageLicense;
+import com.microsoft.bing.imagesearch.models.Images;
 import com.microsoft.bing.imagesearch.models.ImageSize;
 import com.microsoft.bing.imagesearch.models.ImageType;
 import com.microsoft.bing.imagesearch.models.SafeSearch;
