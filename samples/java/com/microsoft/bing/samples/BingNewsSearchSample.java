@@ -7,7 +7,7 @@
 package com.microsoft.bing.samples;
 import com.microsoft.bing.newssearch.models.Freshness;
 import com.microsoft.bing.newssearch.models.NewsArticle;
-import com.microsoft.bing.newssearch.models.NewsModel;
+import com.microsoft.bing.newssearch.models.News;
 import com.microsoft.bing.newssearch.models.NewsTopic;
 import com.microsoft.bing.newssearch.models.SafeSearch;
 import com.microsoft.bing.newssearch.models.TrendingTopics;
@@ -42,7 +42,7 @@ public class BingNewsSearchSample {
             // of the first item in the list of news result list.
 
             System.out.println("Search news for query \"Quantum  Computing\" with market and count");
-            NewsModel newsResults = client.news().search("Quantum  Computing");
+            News newsResults = client.news().search("Quantum  Computing");
             PrintNewsResult(newsResults);
 
 
@@ -102,7 +102,7 @@ public class BingNewsSearchSample {
      *
      * @param newsResults the news result
      */
-    public static void PrintNewsResult(NewsModel newsResults) {
+    public static void PrintNewsResult(News newsResults) {
         if (newsResults != null) {
             if (newsResults.value().size() > 0) {
                 NewsArticle firstNewsResult = newsResults.value().get(0);
