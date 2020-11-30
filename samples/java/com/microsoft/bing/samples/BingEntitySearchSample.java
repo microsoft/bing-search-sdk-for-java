@@ -10,7 +10,6 @@ import com.microsoft.bing.entitysearch.models.Error;
 import com.microsoft.bing.entitysearch.models.ErrorResponse;
 import com.microsoft.bing.entitysearch.models.ErrorResponseException;
 import com.microsoft.bing.entitysearch.models.Place;
-import com.microsoft.bing.entitysearch.models.SearchOptionalParameter;
 import com.microsoft.bing.entitysearch.models.SearchResponse;
 import com.microsoft.bing.entitysearch.models.Thing;
 import com.microsoft.bing.entitysearch.implementation.EntitySearchClientImpl;
