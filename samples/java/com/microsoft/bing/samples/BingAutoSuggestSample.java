@@ -10,6 +10,7 @@ import com.microsoft.bing.autosuggest.models.SearchAction;
 import com.microsoft.bing.autosuggest.models.Suggestions;
 import com.microsoft.bing.autosuggest.models.SuggestionsSuggestionGroup;
 import com.microsoft.bing.autosuggest.implementation.AutoSuggestClientImpl;
+import com.microsoft.rest.credentials.ServiceClientCredentials;
 
 /**
  * Sample code for custom searching news using Bing Auto Suggest, an Azure Cognitive Service.
