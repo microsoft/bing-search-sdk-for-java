@@ -52,7 +52,6 @@ public class BingNewsSearchSample {
             //  name of provider of the first news result
 
             System.out.println("Search most recent news for query \"Artificial Intelligence\" with freshness and sortBy");
-            (String query, String acceptLanguage, String userAgent, String clientId, String clientIp, String location, String countryCode, Integer count, Freshness freshness, String market, Integer offset, Boolean originalImage, SafeSearch safeSearch, String setLang, String sortBy, Boolean textDecorations, TextFormat textFormat)
             newsResults = client.news().search("Artificial Intelligence",market = "en-us", freshness=Freshness.WEEK, sortBy="Date");
 
             PrintNewsResult(newsResults);
