@@ -58,7 +58,7 @@ public class BingCustomSearchSample {
             // If you do not have a customConfigId, you can also use 1 as your value when setting your environment variable.
             final String customConfigId = System.getenv("AZURE_BING_SAMPLES_CUSTOM_CONFIG_ID");
             //Custom Search Endpoint
-            static String endpoint = System.getenv("BING_CUSTOM_SEARCH_ENDPOINT") + "/bingcustomsearch/v7.0/search";
+            String endpoint = System.getenv("BING_CUSTOM_SEARCH_ENDPOINT") + "/bingcustomsearch/v7.0/search";
             ServiceClientCredentials credentials = new ServiceClientCredentials() {
                 @Override
                 public void applyCredentialsFilter(Builder builder) {
