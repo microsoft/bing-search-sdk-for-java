@@ -4,6 +4,7 @@ package com.microsoft.bing.samples;
 import com.microsoft.bing.customsearch.models.SearchResponse;
 import com.microsoft.bing.customsearch.models.WebPage;
 import com.microsoft.bing.customsearch.implementation.CustomSearchClientImpl;
+import com.microsoft.rest.credentials.ServiceClientCredentials;
 import okhttp3.*;
 import okhttp3.OkHttpClient.Builder;
 import java.io.IOException;
@@ -20,8 +21,8 @@ public class BingCustomSearchSample {
             //and print out name and url for the first web page in the results list
     
             System.out.println("Searching for Query: \"Xbox\"");
-            customConfigId = customConfigId != null ? Long.valueOf(customConfigId) : 0;
-            SearchResponse webData = client.customInstances().search("Xbox",customConfigId);
+            customConfigId = customConfigId != null ? customConfigId : "0";
+            SearchResponse webData = client.customInstances().search(customConfigId,"Xbox");
     
             if (webData != null && webData.webPages() != null && webData.webPages().value().size() > 0)
             {
