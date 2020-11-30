@@ -50,9 +50,9 @@ public class BingNewsSearchSample {
             // This will search most recent news for (Artificial Intelligence) with freshness and sort-by parameters then
             //  verify number of results and print out totalEstimatedMatches, name, url, description, published time and
             //  name of provider of the first news result
-
+            /*
             System.out.println("Search most recent news for query \"Artificial Intelligence\" with freshness and sortBy");
-            newsResults = client.news().search()
+            newsResults = client.news().search("Artificial Intelligence")
                 .withQuery("Artificial Intelligence")
                 .withMarket("en-us")
                 .withFreshness(Freshness.WEEK)
@@ -60,7 +60,7 @@ public class BingNewsSearchSample {
                 .execute();
 
             PrintNewsResult(newsResults);
-
+            */
 
             //=============================================================
             // This will search category news for movie and TV entertainment with safe search then verify number of results
@@ -163,7 +163,7 @@ public class BingNewsSearchSample {
             };
             NewsSearchClientImpl client = new NewsSearchClientImpl(endpoint,credentials);
 
-            runSample(bingNewsSearchAPIClient);
+            runSample(client);
         } catch (Exception e) {
             System.out.println(e.getMessage());
             e.printStackTrace();
