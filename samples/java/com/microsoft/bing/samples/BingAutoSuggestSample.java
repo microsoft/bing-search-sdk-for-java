@@ -13,6 +13,8 @@ import com.microsoft.bing.autosuggest.implementation.AutoSuggestClientImpl;
 import com.microsoft.rest.credentials.ServiceClientCredentials;
 import okhttp3.*;
 import okhttp3.OkHttpClient.Builder;
+import java.io.IOException;
+import java.util.List;
 
 /**
  * Sample code for custom searching news using Bing Auto Suggest, an Azure Cognitive Service.
