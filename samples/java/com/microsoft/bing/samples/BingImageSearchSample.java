@@ -5,10 +5,9 @@
  */
 
 package com.microsoft.bing.samples;
-import com.microsoft.bing.entitysearch.models.EntityScenario;
 import com.microsoft.bing.imagesearch.models.ImageObject;
-import com.microsoft.bing.imagesearch.models.ImagesModel;
-import com.microsoft.bing.entitysearch.implementation.ImageSearchClientImpl;
+import com.microsoft.bing.imagesearch.models.Images;
+import com.microsoft.bing.imagesearch.implementation.ImageSearchClientImpl;
 import com.microsoft.rest.credentials.ServiceClientCredentials;
 import okhttp3.*;
 import okhttp3.OkHttpClient.Builder;
@@ -36,7 +35,7 @@ public class BingImageSearchSample {
 
             System.out.println(String.format("Search images for query %s", searchTerm));
 
-            ImagesModel imageResults = client.images().search(searchTerm);
+            Images imageResults = client.images().search(searchTerm);
 
             if (imageResults != null && imageResults.value().size() > 0) {
                 // Image results
