@@ -4,7 +4,7 @@
  * license information.
  */
 
-package com.microsoft.bing.autosuggest.samples;
+package com.microsoft.bing.samples;
 
 import com.microsoft.bing.autosuggest.models.SearchAction;
 import com.microsoft.bing.autosuggest.models.Suggestions;
