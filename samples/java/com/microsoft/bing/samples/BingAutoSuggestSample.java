@@ -63,8 +63,8 @@ public class BingAutoSuggestSample {
             //=============================================================
             // Authenticate
             // Add your Bing Autosuggest subscription key to your environment variables.
-            final String subscriptionKey = System.getenv("BING_AUTOSUGGEST_SUBSCRIPTION_KEY");
-            static String endpoint = System.getenv("BING_AUTOSUGGEST_ENDPOINT") +  "/bing/v7.0/Suggestions";
+            String subscriptionKey = System.getenv("BING_AUTOSUGGEST_SUBSCRIPTION_KEY");
+            String endpoint = System.getenv("BING_AUTOSUGGEST_ENDPOINT") +  "/bing/v7.0/Suggestions";
             ServiceClientCredentials credentials = new ServiceClientCredentials() {
                 @Override
                 public void applyCredentialsFilter(Builder builder) {
@@ -82,7 +82,7 @@ public class BingAutoSuggestSample {
                         }
                     );
                 }
-            }
+            };
             AutoSuggestClientImpl client = new AutoSuggestClientImpl(endpoint,credentials);
             runSample(client);
         } catch (Exception e) {
