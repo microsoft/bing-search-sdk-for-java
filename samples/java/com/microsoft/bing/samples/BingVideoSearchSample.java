@@ -27,8 +27,6 @@ import java.io.IOException;
 import java.util.List;
 import java.util.ArrayList;
 
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Sample code for searching news using Bing Video Search, an Bing Service.
