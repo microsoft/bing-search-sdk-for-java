@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * Sample code for custom searching news using Bing Auto Suggest, an Azure Cognitive Service.
+ * Sample code for custom searching news using Bing Auto Suggest, a Bing Service.
  *  - Search for "Satya Nadella" and print out the first group of suggestions returned from the service.
  */
 public class BingAutoSuggestSample {

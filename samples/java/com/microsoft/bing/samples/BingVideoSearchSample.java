@@ -31,7 +31,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Sample code for searching news using Bing Video Search, an Azure Cognitive Service.
+ * Sample code for searching news using Bing Video Search, an Bing Service.
  *  - Search videos for "SwiftKey" and print out id, name and url.
  *  - Search videos for "Bellevue Trailer" that is free, short and 1080p resolution and print out id, name and url.
  *  - Search for trending videos then verify banner tiles and categories.
@@ -52,7 +52,7 @@ public class BingVideoSearchSample {
             //   name and url of the first video result.
 
             System.out.println("Search videos for query \"SwiftKey\"");
-            Videos videoResults = client.search("SwiftKey");
+            Videos videoResults = client.videos().search("SwiftKey");
 
             printVideoResults(videoResults);
 
@@ -60,26 +60,7 @@ public class BingVideoSearchSample {
             //=============================================================
             // This will search videos for "Bellevue Trailer" that is free, short and 1080p resolution then verify
             //   number of results and print out id, name and url of the first video result.
-            
-        final String xBingApisSDK = "true";
-        final String acceptLanguage = null;
-        final String userAgent = null;
-        final String clientId = null;
-        final String clientIp = null;
-        final String location = null;
-        final String countryCode = null;
-        final Integer count = null;
-        final Freshness freshness = null;
-        final String id = null;
-        final VideoLength length = null;
-        final String market = null;
-        final Integer offset = null;
-        final VideoPricing pricing = null;
-        final VideoResolution resolution = null;
-        final SafeSearch safeSearch = null;
-        final String setLang = null;
-        final Boolean textDecorations = null;
-        final TextFormat textFormat = null;
+
 
             System.out.println("Search videos for query \"Bellevue Trailer\" that is free, short and 1080p resolution");
             

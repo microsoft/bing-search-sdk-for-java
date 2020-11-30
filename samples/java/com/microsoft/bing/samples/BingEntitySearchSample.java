@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 /**
- * Sample code for searching entities using Bing Entiy Search, an Azure Cognitive Service.
+ * Sample code for searching entities using Bing Entiy Search, a Bing Service.
  *  - Search the entities for "Satya Nadella" and print out a short description.
  *  - Search the entities and handle disambiguation results for an ambiguous query "William Gates".
  *  - Search the entities for a single store "Microsoft Store" and print out its phone number.
@@ -257,7 +257,7 @@ public class BingEntitySearchSample {
 
             // If you are going to set the BING_ENTITY_SEARCH_SUBSCRIPTION_KEY environment variable, make sure you set it for your OS, then reopen your command prompt or IDE.
             // If not, you may get an API key not found exception.
-            // IMPORTANT: if you have not set the BING_ENTITY_SEARCH_SUBSCRIPTION_KEY environment variable to your cognitive services API key:
+            // IMPORTANT: if you have not set the BING_ENTITY_SEARCH_SUBSCRIPTION_KEY environment variable to your Bing API key:
             // 1. comment out the below line
             final String subscriptionKey = System.getenv("BING_ENTITY_SEARCH_SUBSCRIPTION_KEY");
             // 2. add your key to your environment variables, and uncomment the line

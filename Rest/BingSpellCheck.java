@@ -21,7 +21,6 @@ import org.json.*;
 
 public class BingSpellCheck {
 
-    // Or using the generic endpoint https://api.cognitive.microsoft.com is OK too.
     static String endpoint = System.getenv("BING_SPELL_CHECK_ENDPOINT") + "/bing/v7.0/spellcheck";
 
     // NOTE: Replace this example key with a valid subscription key.

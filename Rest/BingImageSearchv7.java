@@ -18,7 +18,7 @@ import javax.net.ssl.HttpsURLConnection;
  * 1. create three directories, named "bin", "src", and "lib"
  * 2. place this .java file in "src"
  * 3. download the latest gson .jar file online, and place it in the "lib" folder
- * 4. replace the subscriptionKey value with your valid Cognitive services subscription key
+ * 4. replace the subscriptionKey value with your valid Bing subscription key
  * 5. run the following commands, replacing "lib/gson-2.8.5.jar" with your .jar file:
  * javac -d bin -sourcepath src -cp lib/gson-2.8.5.jar src/BingImageSearchv7.java
  * java -cp bin;lib/gson-2.8.5.jar BingImageSearchv7

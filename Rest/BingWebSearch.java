@@ -32,7 +32,7 @@ public class BingWebSearch {
     static String subscriptionKey = System.getenv("BING_SEARCH_V7_SUBSCRIPTION_KEY");
     static String endpoint = System.getenv("BING_SEARCH_V7_ENDPOINT") + "/bing/v7.0/search";
     // Add your own search terms, if desired.
-    static String searchTerm = "Microsoft Cognitive Services";
+    static String searchTerm = "Microsoft Bing";
 
     public static void main(String[] args) {
         try {

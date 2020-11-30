@@ -34,7 +34,6 @@ import com.google.gson.JsonParser;
 public class BingCustomSearch {
     // <vars>
     // Add your Bing Custom Search subscription key and endpoint to your environment variables.
-    // Example endpoint: https://<your-custom-subdomain>.cognitiveservices.azure.com
     static String subscriptionKey = System.getenv("BING_CUSTOM_SEARCH_SUBSCRIPTION_KEY");
     static String endpoint = System.getenv("BING_CUSTOM_SEARCH_ENDPOINT") + "/bingcustomsearch/v7.0/search";
     

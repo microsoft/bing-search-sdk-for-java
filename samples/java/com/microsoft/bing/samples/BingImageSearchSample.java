@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 /**
- * Sample code for searching images using Bing Image Search, an Azure Cognitive Service.
+ * Sample code for searching images using Bing Image Search, a Bing Service.
  *  - Searches images for "canadian rockies" then outputs the result.
  */
 public class BingImageSearchSample {

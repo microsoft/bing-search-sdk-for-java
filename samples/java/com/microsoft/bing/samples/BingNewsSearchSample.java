@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 /**
- * Sample code for searching news using Bing News Search, an Azure Cognitive Service.
+ * Sample code for searching news using Bing News Search, a Bing Service.
  *  - Search the news for "Quantum  Computing" with market and count settings and print out the results.
  *  - Search the news for "Artificial Intelligence" with market, freshness and sort-by settings and print out the results.
  *  - Search the news category "Movie and TV Entertainment" with market and safe search settings and print out the results.
