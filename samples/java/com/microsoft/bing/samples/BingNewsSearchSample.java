@@ -52,7 +52,12 @@ public class BingNewsSearchSample {
             //  name of provider of the first news result
 
             System.out.println("Search most recent news for query \"Artificial Intelligence\" with freshness and sortBy");
-            newsResults = client.news().search("Artificial Intelligence",market = "en-us", freshness=Freshness.WEEK, sortBy="Date");
+            newsResults = client.news().search()
+                .withQuery("Artificial Intelligence")
+                .withMarket("en-us")
+                .withFreshness(Freshness.WEEK)
+                .withSortBy("Date")
+                .execute();
 
             PrintNewsResult(newsResults);
 
