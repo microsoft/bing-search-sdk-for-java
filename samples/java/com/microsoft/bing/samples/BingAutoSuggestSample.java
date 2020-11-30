@@ -6,7 +6,6 @@
 
 package com.microsoft.bing.autosuggest.samples;
 
-import com.microsoft.bing.autosuggest;
 import com.microsoft.bing.autosuggest.models.SearchAction;
 import com.microsoft.bing.autosuggest.models.Suggestions;
 import com.microsoft.bing.autosuggest.models.SuggestionsSuggestionGroup;
