@@ -130,7 +130,7 @@ public class NewsImpl implements com.microsoft.bing.newssearch.NewsInterface {
         final String countryCode = null;
         final Integer count = null;
         final Freshness freshness = null;
-        final String market = null;
+        final String market = "en-us";
         final Integer offset = null;
         final Boolean originalImage = null;
         final SafeSearch safeSearch = null;
@@ -550,7 +550,7 @@ public class NewsImpl implements com.microsoft.bing.newssearch.NewsInterface {
         final String location = null;
         final String countryCode = null;
         final Integer count = null;
-        final String market = null;
+        final String market = "en-us";
         final Integer offset = null;
         final SafeSearch safeSearch = null;
         final String setLang = null;

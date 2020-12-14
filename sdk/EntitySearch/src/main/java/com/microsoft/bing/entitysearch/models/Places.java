@@ -19,14 +19,14 @@ public class Places extends SearchResultsAnswer {
      * A list of local entities, such as restaurants or hotels.
      */
     @JsonProperty(value = "value", required = true)
-    private List<Thing> value;
+    private List<Place> value;
 
     /**
      * Get a list of local entities, such as restaurants or hotels.
      *
      * @return the value value
      */
-    public List<Thing> value() {
+    public List<Place> value() {
         return this.value;
     }
 
@@ -36,7 +36,7 @@ public class Places extends SearchResultsAnswer {
      * @param value the value value to set
      * @return the Places object itself.
      */
-    public Places withValue(List<Thing> value) {
+    public Places withValue(List<Place> value) {
         this.value = value;
         return this;
     }

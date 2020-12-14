@@ -51,6 +51,7 @@ public class BingEntitySearchSample {
                     if (thing.entityPresentationInfo().entityScenario() == EntityScenario.DOMINANT_ENTITY) {
                         System.out.println("Searched for \"Satya Nadella\" and found a dominant entity with this description:");
                         System.out.println(thing.description());
+                        System.out.println("\n");
                         hasDominateEntry = true;
                         break;
                     }
@@ -104,6 +105,7 @@ public class BingEntitySearchSample {
                     } else {
                         System.out.println("Didn't see any data..");
                     }
+                    System.out.println("\n");
                     break;
                 } catch (ErrorResponseException e) {
                     System.out.println(
@@ -123,12 +125,12 @@ public class BingEntitySearchSample {
             }
 
             //=============================================================
-            // This will look up a single store "Microsoft Store" and print out its phone number.
+            // This will look up a single restaurant "john howie bellevue" and print out its phone number.
 
-            System.out.println("Searching for \"Microsoft Store\"");
+            System.out.println("Searching for \"john howie bellevue\"");
             for (int i = 1; i <= 2; i++) {
                 try {
-                    entityData = client.entities().search("Microsoft Store");
+                    entityData = client.entities().search("john howie bellevue");
 
                     if (entityData.places() != null && entityData.places().value().size() > 0) {
                         // Some local entities will be places, others won't be. Depending on the data you want, try to cast to the appropriate schema
@@ -136,7 +138,7 @@ public class BingEntitySearchSample {
                         Place store = (Place) entityData.places().value().get(0);
 
                         if (store != null) {
-                            System.out.println("Searched for \"Microsoft Store\" and found a store with this phone number:");
+                            System.out.println("Searched for \"john howie bellevue\" and found a store with this phone number:");
                             System.out.println(store.telephone());
                         } else {
                             System.out.println("Couldn't find a place!");
@@ -144,6 +146,7 @@ public class BingEntitySearchSample {
                     } else {
                         System.out.println("Didn't see any data..");
                     }
+                    System.out.println("/n");
                     break;
                 } catch (ErrorResponseException e) {
                     System.out.println(
@@ -197,6 +200,7 @@ public class BingEntitySearchSample {
                     } else {
                         System.out.println("Didn't see any data..");
                     }
+                    System.out.println("/n");
                     break;
                 } catch (ErrorResponseException e) {
                     System.out.println(
@@ -211,28 +215,6 @@ public class BingEntitySearchSample {
                         throw e;
                     }
                     Thread.sleep(1000);
-                }
-            }
-
-
-            //=============================================================
-            // This triggers a bad request and shows how to read the error response.
-            try {
-                SearchResponse errorQuery = client.entities().search("harry potter");
-            } catch (ErrorResponseException ex) {
-                // The status code of the error should be a good indication of what occurred. However, if you'd like more details, you can dig into the response.
-                // Please note that depending on the type of error, the response schema might be different, so you aren't guaranteed a specific error response schema.
-                System.out.println(
-                        String.format("Exception occurred, status code %s with reason %s.", ex.response().code(), ex.response().message()));
-
-                // Attempting to parse the content as an ErrorResponse
-                ErrorResponse issue = ex.body();
-
-                if (issue != null && issue.errors() != null && issue.errors().size() > 0 ) {
-                    Error error = issue.errors().get(0);
-                    System.out.println(
-                            String.format("Turns out the issue is parameter \"%s\" has an invalid value \"%s\". Detailed message is \"%s\"",
-                                    error.parameter(), error.value(), error.message()));
                 }
             }
 

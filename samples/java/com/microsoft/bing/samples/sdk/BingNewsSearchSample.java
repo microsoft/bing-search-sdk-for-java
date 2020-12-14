@@ -114,6 +114,7 @@ public class BingNewsSearchSample {
                 System.out.println(String.format("First news description: %s", firstNewsResult.description()));
                 System.out.println(String.format("First news published time: %s", firstNewsResult.datePublished()));
                 System.out.println(String.format("First news provider: %s", firstNewsResult.provider().get(0).name()));
+                System.out.println("\n");
             } else {
                 System.out.println("Couldn't find news results!");
             }

@@ -68,7 +68,7 @@ public class BingImageSearchSample {
             // then reopen your command prompt or IDE for changes to take effect.
             final String subscriptionKey = System.getenv("BING_SEARCH_V7_SUBSCRIPTION_KEY");
             // Add your Bing Search V7 endpoint to your environment variables.
-            String endpoint = System.getenv("BING_SEARCH_V7_ENDPOINT") + "/bing/v7.0/images/search";
+            String endpoint = System.getenv("BING_SEARCH_V7_ENDPOINT") + "/v7.0";
             
             ServiceClientCredentials credentials = new ServiceClientCredentials() {
                 @Override

@@ -161,6 +161,7 @@ public class BingVideoSearchSample {
                 System.out.println(String.format("First video id: %s", firstVideoResult.videoId()));
                 System.out.println(String.format("First video name: %s", firstVideoResult.name()));
                 System.out.println(String.format("First video url: %s", firstVideoResult.contentUrl()));
+                System.out.println("\n");
             } else {
                 System.out.println("Couldn't find video results!");
             }
@@ -185,6 +186,7 @@ public class BingVideoSearchSample {
                         String.format("First banner tile text: {firstBannerTile.Query.Text}"));
                 System.out.println(
                         String.format("First banner tile url: {firstBannerTile.Query.WebSearchUrl}"));
+                System.out.println("\n");
             } else {
                 System.out.println("Couldn't find banner tiles!");
             }
@@ -225,7 +227,6 @@ public class BingVideoSearchSample {
             System.out.println("Didn't see any trending video data..");
         }
     }
-
     /**
      * Main entry point.
      *
@@ -239,7 +240,7 @@ public class BingVideoSearchSample {
             // then reopen your command prompt or IDE. If not, you may get an API key not found exception.
             final String subscriptionKey = System.getenv("BING_SEARCH_V7_SUBSCRIPTION_KEY");
             // Add your Bing Search V7 endpoint to your environment variables.
-            String endpoint = System.getenv("BING_SEARCH_V7_ENDPOINT") + "/bing/v7.0/videos/search";
+            String endpoint = System.getenv("BING_SEARCH_V7_ENDPOINT") + "/v7.0";
              
             ServiceClientCredentials credentials = new ServiceClientCredentials() {
                 @Override

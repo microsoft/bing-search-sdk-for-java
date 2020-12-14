@@ -129,6 +129,13 @@
         </configuration>
       </plugin>
     </plugins>
+    <resources>
+        <directory>samples/resources</directory>
+        <filtering>true</filtering>
+        <includes>
+            <include>image.jpg</include>
+        </includes>
+    </resources>
   </build>
 
 </project>
