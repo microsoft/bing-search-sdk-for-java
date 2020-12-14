@@ -243,7 +243,7 @@ public class AutoSuggestClientImpl extends AzureServiceClient implements AutoSug
         final String clientIp = null;
         final String location = null;
         final String countryCode = null;
-        final String market = null;
+        final String market = "en-us";
         final SafeSearch safeSearch = null;
         final String setLang = null;
         final List<ResponseFormat> responseFormat = null;

@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.microsoft.bing</groupId>
-  <artifactId>bing-search</artifactId>
+  <artifactId>bing-videosearch</artifactId>
   <version>1.0.0</version>
   <packaging>jar</packaging>
 
@@ -18,14 +18,6 @@
     </license>
   </licenses>
 
-  <developers>
-    <developer>
-      <name>Microsoft Corporation</name>
-      <email>opencommerce@microsoft.com</email>
-      <organization>Microsoft Corporation</organization>
-      <organizationUrl>https://www.microsoft.com</organizationUrl>
-    </developer>
-  </developers>
 
   <scm>
     <connection>scm:git:git://github.com/microsoft/bing-search-sdk-for-java.git</connection>

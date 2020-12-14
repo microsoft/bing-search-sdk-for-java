@@ -124,7 +124,7 @@ public class EntitiesImpl implements Entities {
         final String clientIp = null;
         final String location = null;
         final String countryCode = null;
-        final String market = null;
+        final String market = "en-us";
         final List<AnswerType> responseFilter = null;
         final List<ResponseFormat> responseFormat = null;
         final SafeSearch safeSearch = null;

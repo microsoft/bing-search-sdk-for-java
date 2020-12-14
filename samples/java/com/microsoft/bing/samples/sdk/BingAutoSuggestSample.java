@@ -68,7 +68,7 @@ public class BingAutoSuggestSample {
             // Authenticate
             // Add your Bing Autosuggest subscription key to your environment variables.
             String subscriptionKey = System.getenv("BING_AUTOSUGGEST_SUBSCRIPTION_KEY");
-            String endpoint = System.getenv("BING_AUTOSUGGEST_ENDPOINT") +  "/bing/v7.0/Suggestions";
+            String endpoint = System.getenv("BING_AUTOSUGGEST_ENDPOINT") +  "/v7.0";
             ServiceClientCredentials credentials = new ServiceClientCredentials() {
                 @Override
                 public void applyCredentialsFilter(Builder builder) {
