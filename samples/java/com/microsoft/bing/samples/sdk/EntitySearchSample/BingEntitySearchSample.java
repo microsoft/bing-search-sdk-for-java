@@ -245,7 +245,7 @@ public class BingEntitySearchSample {
             // 2. add your key to your environment variables, and uncomment the line
             //final String subscriptionKey = System.getenv("BING_ENTITY_SEARCH_SUBSCRIPTION_KEY");
             //Entity search Endpoint
-            String endpoint = System.getenv("BING_ENTITY_SEARCH_ENDPOINT") + "/bing/v7.0/entities";
+            String endpoint = System.getenv("BING_ENTITY_SEARCH_ENDPOINT") + "/v7.0";
 
             ServiceClientCredentials credentials = new ServiceClientCredentials() {
                 @Override

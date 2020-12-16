@@ -1,10 +1,17 @@
+package com.microsoft.bing.rest;
+
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
 import java.io.*;
 import java.net.*;
 import javax.net.ssl.HttpsURLConnection;
-import org.json.*;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+
 
 /**
  * This sample uses the Bing Spell Check v7 API to check spelling of a sentence.
@@ -21,7 +28,7 @@ import org.json.*;
 
 public class BingSpellCheck {
 
-    static String endpoint = System.getenv("BING_SPELL_CHECK_ENDPOINT") + "/bing/v7.0/spellcheck";
+    static String endpoint = System.getenv("BING_SPELL_CHECK_ENDPOINT") + "/v7.0/spellcheck";
 
     // NOTE: Replace this example key with a valid subscription key.
     static String subscriptionKey = System.getenv("BING_SPELL_CHECK_SUBSCRIPTION_KEY");
@@ -30,6 +37,15 @@ public class BingSpellCheck {
     static String mode = "proof";
     static String text = "Hollo, wrld!";
 
+    
+    // Pretty-printer for JSON; uses GSON parser to parse and re-serialize
+    public static String prettify (String json_text) {
+        JsonParser parser = new JsonParser();
+        JsonObject json = (JsonObject) parser.parse(json_text);
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        return gson.toJson(json);
+    }
+    
     public static void main(String[] args) {
         try {
             String params = "?mkt=" + mkt + "&mode=" + mode;
@@ -56,7 +72,7 @@ public class BingSpellCheck {
                 sb.append(line);
             }
             // Pretty print
-            System.out.println((new JSONObject(sb.toString())).toString(4));
+            System.out.println(prettify(sb.toString()));
 
             in.close();
         } catch (Exception e) {

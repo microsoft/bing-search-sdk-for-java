@@ -1,3 +1,5 @@
+package com.microsoft.bing.rest;
+
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
@@ -30,7 +32,7 @@ public class BingWebSearch {
 
     // Add your Bing Search V7 subscription key to your environment variables.
     static String subscriptionKey = System.getenv("BING_SEARCH_V7_SUBSCRIPTION_KEY");
-    static String endpoint = System.getenv("BING_SEARCH_V7_ENDPOINT") + "/bing/v7.0/search";
+    static String endpoint = System.getenv("BING_SEARCH_V7_ENDPOINT") + "/v7.0/search";
     // Add your own search terms, if desired.
     static String searchTerm = "Microsoft Bing";
 
@@ -79,10 +81,11 @@ public class BingWebSearch {
 
         return results;
     }
-
-    // Pretty-printer for JSON; uses GSON parser to parse and re-serialize
-    public static String prettify(String json_text) {
-        JsonObject json = JsonParser.parseString(json_text).getAsJsonObject();
+    
+    // pretty-printer for JSON; uses GSON parser to parse and re-serialize
+    public static String prettify (String json_text) {
+        JsonParser parser = new JsonParser();
+        JsonObject json = (JsonObject) parser.parse(json_text);
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         return gson.toJson(json);
     }

@@ -1,3 +1,5 @@
+package com.microsoft.bing.rest;
+
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
@@ -9,6 +11,8 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+
+import net.minidev.json.parser.JSONParser;
 
 /*
  * Download the Gson library: https://github.com/google/gson
@@ -28,7 +32,7 @@ public class BingAutosuggest {
     // Add your Bing Autosuggest subscription key to your environment variables.
     static String subscriptionKey = System.getenv("BING_AUTOSUGGEST_SUBSCRIPTION_KEY");
 
-    static String endpoint = System.getenv("BING_AUTOSUGGEST_ENDPOINT") +  "/bing/v7.0/Suggestions";
+    static String endpoint = System.getenv("BING_AUTOSUGGEST_ENDPOINT") +  "/v7.0/Suggestions";
 
     static String mkt = "en-US";
     static String query = "sail";
@@ -56,7 +60,8 @@ public class BingAutosuggest {
     }
 
     public static String prettify (String json_text) {
-        JsonObject json = JsonParser.parseString(json_text).getAsJsonObject();
+        JsonParser parser = new JsonParser();
+        JsonObject json = (JsonObject) parser.parse(json_text);
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         return gson.toJson(json);
     }

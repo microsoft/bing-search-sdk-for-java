@@ -1,5 +1,8 @@
+package com.microsoft.bing.rest;
+
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
+
 
 import java.net.*;
 import java.util.*;
@@ -31,7 +34,7 @@ public class BingNewsSearch {
     static String subscriptionKey = System.getenv("BING_SEARCH_V7_SUBSCRIPTION_KEY");
 
     // Add your Bing Search V7 endpoint to your environment variables.
-    static String endpoint = System.getenv("BING_SEARCH_V7_ENDPOINT") + "/bing/v7.0/news/search";
+    static String endpoint = System.getenv("BING_SEARCH_V7_ENDPOINT") + "/v7.0/news";
 
     static String searchTerm = "Microsoft";
 
@@ -83,8 +86,9 @@ public class BingNewsSearch {
     }
 
     // Pretty-printer for JSON; uses GSON parser to parse and re-serialize
-    public static String prettify(String json_text) {
-        JsonObject json = JsonParser.parseString(json_text).getAsJsonObject();
+    public static String prettify (String json_text) {
+        JsonParser parser = new JsonParser();
+        JsonObject json = (JsonObject) parser.parse(json_text);
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         return gson.toJson(json);
     }

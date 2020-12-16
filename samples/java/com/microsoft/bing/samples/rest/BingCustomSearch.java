@@ -1,3 +1,4 @@
+package com.microsoft.bing.rest;
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. 
 // <imports>
@@ -35,7 +36,7 @@ public class BingCustomSearch {
     // <vars>
     // Add your Bing Custom Search subscription key and endpoint to your environment variables.
     static String subscriptionKey = System.getenv("BING_CUSTOM_SEARCH_SUBSCRIPTION_KEY");
-    static String endpoint = System.getenv("BING_CUSTOM_SEARCH_ENDPOINT") + "/bingcustomsearch/v7.0/search";
+    static String endpoint = System.getenv("BING_CUSTOM_SEARCH_ENDPOINT") + "/v7.0/custom/search";
     
     static String customConfigId = System.getenv("BING_CUSTOM_CONFIG"); //you can also use "1"
     static String searchTerm = "Microsoft";  // Replace with another search term, if you'd like.
@@ -92,8 +93,9 @@ public class BingCustomSearch {
 
     // <prettify>
     // Pretty-printer for JSON; uses GSON parser to parse and re-serialize
-    public static String prettify(String jsonText) {
-        JsonObject json = JsonParser.parseString(jsonText).getAsJsonObject();
+    public static String prettify (String json_text) {
+        JsonParser parser = new JsonParser();
+        JsonObject json = (JsonObject) parser.parse(json_text);
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         return gson.toJson(json);
     }

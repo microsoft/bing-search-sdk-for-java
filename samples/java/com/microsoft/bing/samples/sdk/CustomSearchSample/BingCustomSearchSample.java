@@ -53,11 +53,11 @@ public class BingCustomSearchSample {
     public static void main(String[] args) {
         try {
     
-            // Set the BING_CUSTOM_SEARCH_SUBSCRIPTION_KEY and AZURE_BING_SAMPLES_CUSTOM_CONFIG_ID environment variables, 
+            // Set the BING_CUSTOM_SEARCH_SUBSCRIPTION_KEY and BING_SAMPLES_CUSTOM_CONFIG_ID environment variables, 
             // then reopen your command prompt or IDE. If not, you may get an API key not found exception.
             final String subscriptionKey = System.getenv("BING_CUSTOM_SEARCH_SUBSCRIPTION_KEY");
             // If you do not have a customConfigId, you can also use 1 as your value when setting your environment variable.
-            final String customConfigId = System.getenv("AZURE_BING_SAMPLES_CUSTOM_CONFIG_ID");
+            final String customConfigId = System.getenv("BING_SAMPLES_CUSTOM_CONFIG_ID");
             //Custom Search Endpoint
             String endpoint = System.getenv("BING_CUSTOM_SEARCH_ENDPOINT") +  "/v7.0/custom";
             ServiceClientCredentials credentials = new ServiceClientCredentials() {

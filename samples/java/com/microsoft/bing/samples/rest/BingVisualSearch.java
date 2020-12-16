@@ -1,3 +1,8 @@
+package com.microsoft.bing.rest;
+
+// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License.
+
 import java.util.*;
 import java.io.*;
 
@@ -36,7 +41,7 @@ public class BingVisualSearch {
 
     // Add your Bing Search V7 key endpoint to your environment variables.
     static String subscriptionKey = System.getenv("BING_SEARCH_V7_SUBSCRIPTION_KEY");
-    static String endpoint = System.getenv("BING_SEARCH_V7_ENDPOINT") + "/bing/v7.0/images/visualsearch";
+    static String endpoint = System.getenv("BING_SEARCH_V7_ENDPOINT") + "/v7.0/images/visualsearch";
     // Use your own URL image if desired.
     static String imagePath = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-sample-data-files/master/ComputerVision/Images/objects.jpg";
 
@@ -73,8 +78,9 @@ public class BingVisualSearch {
     }
     
     // Pretty-printer for JSON; uses GSON parser to parse and re-serialize
-    public static String prettify(String json_text) {
-        JsonObject json = JsonParser.parseString(json_text).getAsJsonObject();
+    public static String prettify (String json_text) {
+        JsonParser parser = new JsonParser();
+        JsonObject json = (JsonObject) parser.parse(json_text);
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         return gson.toJson(json);
     }

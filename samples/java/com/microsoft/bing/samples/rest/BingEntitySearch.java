@@ -1,3 +1,7 @@
+package com.microsoft.bing.rest;
+
+// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License.
 import java.io.*;
 import java.net.*;
 import java.util.*;
@@ -26,7 +30,7 @@ public class BingEntitySearch {
     // Add your Bing Entity Search subscription key to your environment variables.
     static String subscriptionKey = System.getenv("BING_ENTITY_SEARCH_SUBSCRIPTION_KEY");
     // Add your Bing Entity Search endpoint to your environment variables.
-    static String endpoint = System.getenv("BING_ENTITY_SEARCH_ENDPOINT") + "/bing/v7.0/entities";
+    static String endpoint = System.getenv("BING_ENTITY_SEARCH_ENDPOINT") +  "/v7.0/entities";
 
     static String mkt = "en-US";
     static String query = "italian restaurant near me";
@@ -53,8 +57,9 @@ public class BingEntitySearch {
     }
 
     // Pretty-printer for JSON; uses GSON parser to parse and re-serialize
-    public static String prettify(String jsonText) {
-        JsonObject json = JsonParser.parseString(jsonText).getAsJsonObject();
+    public static String prettify (String json_text) {
+        JsonParser parser = new JsonParser();
+        JsonObject json = (JsonObject) parser.parse(json_text);
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         return gson.toJson(json);
     }

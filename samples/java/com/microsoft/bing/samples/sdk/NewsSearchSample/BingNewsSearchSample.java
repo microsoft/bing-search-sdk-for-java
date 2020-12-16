@@ -137,7 +137,7 @@ public class BingNewsSearchSample {
             final String subscriptionKey = System.getenv("BING_SEARCH_V7_SUBSCRIPTION_KEY");
 
             // Add your Bing Search V7 endpoint to your environment variables.
-            String endpoint = System.getenv("BING_SEARCH_V7_ENDPOINT") + "/bing/v7.0/news/search";
+            String endpoint = System.getenv("BING_SEARCH_V7_ENDPOINT") +  "/v7.0";
             
             ServiceClientCredentials credentials = new ServiceClientCredentials() {
                 @Override

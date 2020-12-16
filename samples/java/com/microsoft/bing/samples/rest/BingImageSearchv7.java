@@ -1,5 +1,7 @@
-/*Copyright (c) Microsoft Corporation. All rights reserved.
-Licensed under the MIT License.*/
+package com.microsoft.bing.rest;
+
+// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License.
 
 import java.net.*;
 import java.util.*;
@@ -40,7 +42,7 @@ public class BingImageSearchv7 {
 
     // Add your Bing Search V7 endpoint to your environment variables.
     static String host = System.getenv("BING_SEARCH_V7_ENDPOINT");
-    static String path = "/bing/v7.0/images/search";
+    static String path = "/v7.0/images/search";
 
     static String searchTerm = "tropical ocean";
 
