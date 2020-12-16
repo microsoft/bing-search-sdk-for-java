@@ -1,53 +1,47 @@
-package com.microsoft.bing.rest;
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License. 
-// <imports>
-import javax.net.ssl.HttpsURLConnection;
-import java.io.InputStream;
-import java.net.URL;
-import java.net.URLEncoder;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
+package com.microsoft.bing.samples;
 
+// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License.
+
+import java.net.*;
+import java.util.*;
+import java.io.*;
+import javax.net.ssl.HttpsURLConnection;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-// </imports>
 
 /**
- * This sample uses BingCustomSearch to do a web search with a text query and
- * return custom-designed results.
+ * This sample uses the Bing Video Search API with a text query, which returns videos from a web search.
  * 
- * Add the Bing Custom Search key, endpoint, and custom configuration ID to your
- * environment variables.
- * 
- * Include the Gson library jar in your project folder:
- * https://github.com/google/gson
+ * Gson: https://github.com/google/gson
+ * Maven info:
+ *     groupId: com.google.code.gson
+ *     artifactId: gson
+ *     version: x.x.x
  *
- * To compile/run from command line: 
- *   javac BingCustomSearch.java -cp .;gson-2.8.6.jar 
- *   java -cp .;gson-2.8.6.jar BingCustomSearch
+ * Add your Bing Video Search key and endpoint to your environment variables.
+ *
+ * Compile and run from the command line:
+ *   javac BingVideoSearch.java -cp .;gson-2.8.6.jar -encoding UTF-8
+ *   java -cp .;gson-2.8.6.jar BingVideoSearch
  */
+public class BingVideoSearch {
 
-public class BingCustomSearch {
-    // <vars>
-    // Add your Bing Custom Search subscription key and endpoint to your environment variables.
-    static String subscriptionKey = System.getenv("BING_CUSTOM_SEARCH_SUBSCRIPTION_KEY");
-    static String endpoint = System.getenv("BING_CUSTOM_SEARCH_ENDPOINT") + "/v7.0/custom/search";
+    // Add your Bing Search V7 subscription key to your environment variables.
+    static String subscriptionKey = System.getenv("BING_SEARCH_V7_SUBSCRIPTION_KEY");
     
-    static String customConfigId = System.getenv("BING_CUSTOM_CONFIG"); //you can also use "1"
-    static String searchTerm = "Microsoft";  // Replace with another search term, if you'd like.
-    // </vars>
+    // Add your Bing Search V7 endpoint to your environment variables.
+    static String endpoint = System.getenv("BING_SEARCH_V7_ENDPOINT") + "/v7.0/videos";
 
-    // <main>
-    public static void main (String[] args) {
+    static String searchTerm = "kittens";
+
+    public static void main(String[] args) {
         try {
             System.out.println("Searching the Web for: " + searchTerm);
 
-            SearchResults result = SearchWeb(searchTerm);
+            SearchResults result = SearchVideos(searchTerm);
 
             System.out.println("\nRelevant HTTP Headers:\n");
             for (String header : result.relevantHeaders.keySet())
@@ -55,18 +49,15 @@ public class BingCustomSearch {
 
             System.out.println("\nJSON Response:\n");
             System.out.println(prettify(result.jsonResponse));
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace(System.out);
             System.exit(1);
         }
     }
-    // </main>
 
-    // <searchWeb>
-    public static SearchResults SearchWeb(String searchQuery) throws Exception {
+    public static SearchResults SearchVideos (String searchQuery) throws Exception {
         // Construct URL of search request (endpoint + query string)
-        URL url = new URL(endpoint + "?q=" +  URLEncoder.encode(searchTerm, "UTF-8") + "&CustomConfig=" + customConfigId);
+        URL url = new URL(endpoint + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8"));
         HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
         connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
 
@@ -86,12 +77,13 @@ public class BingCustomSearch {
                 results.relevantHeaders.put(header, headers.get(header).get(0));
             }
         }
+
+        stream.close();
         scanner.close();
+
         return results;
     }
-    // </searchWeb>
 
-    // <prettify>
     // Pretty-printer for JSON; uses GSON parser to parse and re-serialize
     public static String prettify (String json_text) {
         JsonParser parser = new JsonParser();
@@ -99,17 +91,4 @@ public class BingCustomSearch {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         return gson.toJson(json);
     }
-    // </prettify>
 }
-
-// <searchResultsClass>
-// Container class for search results encapsulates relevant headers and JSON data
-class SearchResults{
-    HashMap<String, String> relevantHeaders;
-    String jsonResponse;
-    SearchResults(HashMap<String, String> headers, String json) {
-        relevantHeaders = headers;
-        jsonResponse = json;
-    }
-}
-// </searchResultsClass>

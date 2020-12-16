@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.microsoft.bing</groupId>
-  <artifactId>bing-search-samples</artifactId>
+  <artifactId>samples</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
@@ -100,7 +100,7 @@
   </properties>
 
   <build>
-    <sourceDirectory>samples/java</sourceDirectory>
+    <sourceDirectory>samples/</sourceDirectory>
     <plugins>
       <plugin>
         <groupId>org.codehaus.mojo</groupId>

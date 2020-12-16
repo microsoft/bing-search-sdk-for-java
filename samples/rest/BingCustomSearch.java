@@ -1,42 +1,49 @@
-package com.microsoft.bing.rest;
-
+package com.microsoft.bing.samples;
 // Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License.
-
-import java.net.*;
-import java.util.*;
-import java.io.*;
+// Licensed under the MIT License. 
+// <imports>
 import javax.net.ssl.HttpsURLConnection;
+import java.io.InputStream;
+import java.net.URL;
+import java.net.URLEncoder;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+// </imports>
 
 /**
- * This sample uses the Bing Web Search API with a text query to return relevant results from the web.
+ * This sample uses BingCustomSearch to do a web search with a text query and
+ * return custom-designed results.
  * 
- * Include the Gson jar library with your project:
- * Gson: https://github.com/google/gson
+ * Add the Bing Custom Search key, endpoint, and custom configuration ID to your
+ * environment variables.
  * 
- * Maven info:
- *     groupId: com.google.code.gson
- *     artifactId: gson
- *     version: 2.8.6
+ * Include the Gson library jar in your project folder:
+ * https://github.com/google/gson
  *
- * Compile and run from the command line (change Gson version if needed):
- *   javac BingWebSearch.java -cp .;gson-2.8.6.jar -encoding UTF-8
- *   java -cp .;gson-2.8.6.jar BingWebSearch
+ * To compile/run from command line: 
+ *   javac BingCustomSearch.java -cp .;gson-2.8.6.jar 
+ *   java -cp .;gson-2.8.6.jar BingCustomSearch
  */
-public class BingWebSearch {
 
-    // Add your Bing Search V7 subscription key to your environment variables.
-    static String subscriptionKey = System.getenv("BING_SEARCH_V7_SUBSCRIPTION_KEY");
-    static String endpoint = System.getenv("BING_SEARCH_V7_ENDPOINT") + "/v7.0/search";
-    // Add your own search terms, if desired.
-    static String searchTerm = "Microsoft Bing";
+public class BingCustomSearch {
+    // <vars>
+    // Add your Bing Custom Search subscription key and endpoint to your environment variables.
+    static String subscriptionKey = System.getenv("BING_CUSTOM_SEARCH_SUBSCRIPTION_KEY");
+    static String endpoint = System.getenv("BING_CUSTOM_SEARCH_ENDPOINT") + "/v7.0/custom/search";
+    
+    static String customConfigId = System.getenv("BING_CUSTOM_CONFIG"); //you can also use "1"
+    static String searchTerm = "Microsoft";  // Replace with another search term, if you'd like.
+    // </vars>
 
-    public static void main(String[] args) {
+    // <main>
+    public static void main (String[] args) {
         try {
             System.out.println("Searching the Web for: " + searchTerm);
 
@@ -48,15 +55,18 @@ public class BingWebSearch {
 
             System.out.println("\nJSON Response:\n");
             System.out.println(prettify(result.jsonResponse));
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
             e.printStackTrace(System.out);
             System.exit(1);
         }
     }
+    // </main>
 
-    public static SearchResults SearchWeb (String searchQuery) throws Exception {
+    // <searchWeb>
+    public static SearchResults SearchWeb(String searchQuery) throws Exception {
         // Construct URL of search request (endpoint + query string)
-        URL url = new URL(endpoint + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8"));
+        URL url = new URL(endpoint + "?q=" +  URLEncoder.encode(searchTerm, "UTF-8") + "&CustomConfig=" + customConfigId);
         HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
         connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
 
@@ -76,17 +86,30 @@ public class BingWebSearch {
                 results.relevantHeaders.put(header, headers.get(header).get(0));
             }
         }
-        stream.close();
         scanner.close();
-
         return results;
     }
-    
-    // pretty-printer for JSON; uses GSON parser to parse and re-serialize
+    // </searchWeb>
+
+    // <prettify>
+    // Pretty-printer for JSON; uses GSON parser to parse and re-serialize
     public static String prettify (String json_text) {
         JsonParser parser = new JsonParser();
         JsonObject json = (JsonObject) parser.parse(json_text);
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         return gson.toJson(json);
     }
+    // </prettify>
 }
+
+// <searchResultsClass>
+// Container class for search results encapsulates relevant headers and JSON data
+class SearchResults{
+    HashMap<String, String> relevantHeaders;
+    String jsonResponse;
+    SearchResults(HashMap<String, String> headers, String json) {
+        relevantHeaders = headers;
+        jsonResponse = json;
+    }
+}
+// </searchResultsClass>

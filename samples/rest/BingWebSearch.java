@@ -1,48 +1,46 @@
-package com.microsoft.bing.rest;
+package com.microsoft.bing.samples;
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
-
 
 import java.net.*;
 import java.util.*;
 import java.io.*;
 import javax.net.ssl.HttpsURLConnection;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
 /**
- * This sample uses the Bing News Search with a text query to get all news on the topic.
- *
+ * This sample uses the Bing Web Search API with a text query to return relevant results from the web.
+ * 
+ * Include the Gson jar library with your project:
  * Gson: https://github.com/google/gson
+ * 
  * Maven info:
- *   groupId: com.google.code.gson
- *   artifactId: gson
- *   version: x.x.x
+ *     groupId: com.google.code.gson
+ *     artifactId: gson
+ *     version: 2.8.6
  *
- * Place the Gson jar in the same folder as this file (BingNewsSearch.java), 
- * then compile and run from the command line:
- *   javac BingNewsSearch.java -classpath .;gson-2.8.6.jar -encoding UTF-8
- *   java -cp .;gson-2.8.6.jar BingNewsSearch
+ * Compile and run from the command line (change Gson version if needed):
+ *   javac BingWebSearch.java -cp .;gson-2.8.6.jar -encoding UTF-8
+ *   java -cp .;gson-2.8.6.jar BingWebSearch
  */
-
-public class BingNewsSearch {
+public class BingWebSearch {
 
     // Add your Bing Search V7 subscription key to your environment variables.
     static String subscriptionKey = System.getenv("BING_SEARCH_V7_SUBSCRIPTION_KEY");
-
-    // Add your Bing Search V7 endpoint to your environment variables.
-    static String endpoint = System.getenv("BING_SEARCH_V7_ENDPOINT") + "/v7.0/news";
-
-    static String searchTerm = "Microsoft";
+    static String endpoint = System.getenv("BING_SEARCH_V7_ENDPOINT") + "/v7.0/search";
+    // Add your own search terms, if desired.
+    static String searchTerm = "Microsoft Bing";
 
     public static void main(String[] args) {
         try {
             System.out.println("Searching the Web for: " + searchTerm);
 
-            SearchResults result = SearchNews(searchTerm);
+            SearchResults result = SearchWeb(searchTerm);
 
             System.out.println("\nRelevant HTTP Headers:\n");
             for (String header : result.relevantHeaders.keySet())
@@ -56,7 +54,7 @@ public class BingNewsSearch {
         }
     }
 
-    public static SearchResults SearchNews (String searchQuery) throws Exception {
+    public static SearchResults SearchWeb (String searchQuery) throws Exception {
         // Construct URL of search request (endpoint + query string)
         URL url = new URL(endpoint + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8"));
         HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
@@ -65,7 +63,7 @@ public class BingNewsSearch {
         // Receive JSON body
         InputStream stream = connection.getInputStream();
         Scanner scanner = new Scanner(stream);
-        String response  = scanner.useDelimiter("\\A").next();
+        String response = scanner.useDelimiter("\\A").next();
 
         // Construct result object for return
         SearchResults results = new SearchResults(new HashMap<String, String>(), response);
@@ -78,14 +76,13 @@ public class BingNewsSearch {
                 results.relevantHeaders.put(header, headers.get(header).get(0));
             }
         }
-
-        scanner.close();
         stream.close();
+        scanner.close();
 
         return results;
     }
-
-    // Pretty-printer for JSON; uses GSON parser to parse and re-serialize
+    
+    // pretty-printer for JSON; uses GSON parser to parse and re-serialize
     public static String prettify (String json_text) {
         JsonParser parser = new JsonParser();
         JsonObject json = (JsonObject) parser.parse(json_text);

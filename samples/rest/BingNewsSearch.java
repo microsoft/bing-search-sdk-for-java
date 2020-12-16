@@ -1,7 +1,8 @@
-package com.microsoft.bing.rest;
+package com.microsoft.bing.samples;
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
+
 
 import java.net.*;
 import java.util.*;
@@ -13,35 +14,35 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
 /**
- * This sample uses the Bing Video Search API with a text query, which returns videos from a web search.
- * 
+ * This sample uses the Bing News Search with a text query to get all news on the topic.
+ *
  * Gson: https://github.com/google/gson
  * Maven info:
- *     groupId: com.google.code.gson
- *     artifactId: gson
- *     version: x.x.x
+ *   groupId: com.google.code.gson
+ *   artifactId: gson
+ *   version: x.x.x
  *
- * Add your Bing Video Search key and endpoint to your environment variables.
- *
- * Compile and run from the command line:
- *   javac BingVideoSearch.java -cp .;gson-2.8.6.jar -encoding UTF-8
- *   java -cp .;gson-2.8.6.jar BingVideoSearch
+ * Place the Gson jar in the same folder as this file (BingNewsSearch.java), 
+ * then compile and run from the command line:
+ *   javac BingNewsSearch.java -classpath .;gson-2.8.6.jar -encoding UTF-8
+ *   java -cp .;gson-2.8.6.jar BingNewsSearch
  */
-public class BingVideoSearch {
+
+public class BingNewsSearch {
 
     // Add your Bing Search V7 subscription key to your environment variables.
     static String subscriptionKey = System.getenv("BING_SEARCH_V7_SUBSCRIPTION_KEY");
-    
-    // Add your Bing Search V7 endpoint to your environment variables.
-    static String endpoint = System.getenv("BING_SEARCH_V7_ENDPOINT") + "/v7.0/videos";
 
-    static String searchTerm = "kittens";
+    // Add your Bing Search V7 endpoint to your environment variables.
+    static String endpoint = System.getenv("BING_SEARCH_V7_ENDPOINT") + "/v7.0/news";
+
+    static String searchTerm = "Microsoft";
 
     public static void main(String[] args) {
         try {
             System.out.println("Searching the Web for: " + searchTerm);
 
-            SearchResults result = SearchVideos(searchTerm);
+            SearchResults result = SearchNews(searchTerm);
 
             System.out.println("\nRelevant HTTP Headers:\n");
             for (String header : result.relevantHeaders.keySet())
@@ -55,7 +56,7 @@ public class BingVideoSearch {
         }
     }
 
-    public static SearchResults SearchVideos (String searchQuery) throws Exception {
+    public static SearchResults SearchNews (String searchQuery) throws Exception {
         // Construct URL of search request (endpoint + query string)
         URL url = new URL(endpoint + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8"));
         HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
@@ -64,7 +65,7 @@ public class BingVideoSearch {
         // Receive JSON body
         InputStream stream = connection.getInputStream();
         Scanner scanner = new Scanner(stream);
-        String response = scanner.useDelimiter("\\A").next();
+        String response  = scanner.useDelimiter("\\A").next();
 
         // Construct result object for return
         SearchResults results = new SearchResults(new HashMap<String, String>(), response);
@@ -78,8 +79,8 @@ public class BingVideoSearch {
             }
         }
 
-        stream.close();
         scanner.close();
+        stream.close();
 
         return results;
     }
