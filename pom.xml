@@ -140,11 +140,13 @@
       </plugin>
     </plugins>
     <resources>
-        <directory>samples/resources</directory>
+      <resource>
+        <directory>resources</directory>
         <filtering>true</filtering>
         <includes>
             <include>image.jpg</include>
         </includes>
+      </resource>
     </resources>
   </build>
 
