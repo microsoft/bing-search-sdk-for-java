@@ -31,7 +31,8 @@ To get these samples running locally, simply get the pre-requisites above, then:
 2. cd bing-search-sdk-for-java/samples/java/com/microsoft/bing/samples/sdk/VideoSearchSample
 3. Set a system environment variable named `BING_SEARCH_V7_SUBSCRIPTION_KEY` with your subscription key, 
    then reopen your command prompt or IDE. If not, you might get an API key not found exception.
-4. mvn compile exec:java
+4. set env variable `BING_SEARCH_V7_ENDPOINT` to your account Endpoint.
+5. mvn compile exec:java
 
 ## More information ##
 [Bing Video Search Documentation](https://docs.microsoft.com/en-us/bing/search-apis/bing-video-search/)

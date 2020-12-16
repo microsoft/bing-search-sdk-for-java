@@ -32,7 +32,8 @@ To get these samples running locally, simply get the pre-requisites above, then:
 1. git clone https://github.com/microsoft/bing-search-sdk-for-java.git
 2. cd bing-search-sdk-for-java/samples/java/com/microsoft/bing/samples/sdk/EntitySearchSample
 3. Set a system environment variable named `BING_ENTITY_SEARCH_SUBSCRIPTION_KEY` and add your subscription key value. Reopen your command prompt or IDE. If not, you might get an API key not found exception.
-4. mvn compile exec:java
+4. set env variable `BING_ENTITY_SEARCH_ENDPOINT` to your account Endpoint.
+5. mvn compile exec:java
 
 ## More information ##
 

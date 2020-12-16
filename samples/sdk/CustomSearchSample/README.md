@@ -29,7 +29,8 @@ To get these samples running locally, simply get the pre-requisites above, then:
 2. cd bing-search-sdk-for-java/samples/java/com/microsoft/bing/samples/sdk/CustomSearchSample
 3. set env variable BING_CUSTOM_SEARCH_SUBSCRIPTION_KEY to your account API key.
 4. set env variable BING_SAMPLES_CUSTOM_CONFIG_ID to your custom configuration id. Can set to 1 if you do not have a custom config id.
-5. mvn compile exec:java
+5. set env variable `BING_CUSTOM_SEARCH_ENDPOINT` to your account Endpoint.
+6. mvn compile exec:java
 
 ## More information ##
 [Bing Custom Search Documentation](https://docs.microsoft.com/en-us/bing/search-apis/bing-custom-search/overview)

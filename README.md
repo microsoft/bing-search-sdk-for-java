@@ -1,14 +1,29 @@
 # Project
 
-> This repo has been populated by an initial template to help get you started. Please
-> make sure to update the content to build a great experience for community-building.
+# Bing Search SDK for Java
 
-As the maintainer of this project, please make a few updates:
+[![Packages](https://img.shields.io/badge/packages-latest-blue.svg)](https://azure.github.io/azure-sdk/releases/latest/java.html) [![Dependencies](https://img.shields.io/badge/dependency-report-blue.svg)](https://azuresdkartifacts.blob.core.windows.net/azure-sdk-for-java/staging/dependencies.html) [![DepGraph](https://img.shields.io/badge/dependency-graph-blue.svg)](https://azuresdkartifacts.blob.core.windows.net/azure-sdk-for-java/staging/InterdependencyGraph.html) [![Build Documentation](https://img.shields.io/badge/documentation-published-blue.svg)](https://azuresdkartifacts.blob.core.windows.net/azure-sdk-for-java/index.html) [![SpotBugs](https://img.shields.io/badge/SpotBugs-Clean-success.svg)](https://azuresdkartifacts.blob.core.windows.net/azure-sdk-for-java/staging/spotbugsXml.html) [![CheckStyle](https://img.shields.io/badge/CheckStyle-Clean-success.svg)](https://azuresdkartifacts.blob.core.windows.net/azure-sdk-for-java/staging/checkstyle-aggregate.html)
 
-- Improving this README.MD file to provide a great experience
-- Updating SUPPORT.MD with content about this project's support experience
-- Understanding the security reporting process in SECURITY.MD
-- Remove this section from the README
+This repository is for active development of the Bing Api SDK for Java. 
+
+## Getting started
+
+To get started with a specific service library, see the **README.md** file located in the library's project folder. You can find service libraries in the `/sdk` directory. You can find sdk samples and rest samples in the `/samples` directory. For a list of all the services we support access our [list of all existing libraries]().
+
+For tutorials, samples, quick starts and other documentation, visit [Azure for Java Developers](https://docs.microsoft.com/java/azure/).
+
+
+## Need help?
+
+- For reference documentation visit the [Azure SDK for Java documentation](https://aka.ms/java-docs).
+- For tutorials, samples, quick starts and other documentation, visit `/samples` directory.
+- File an issue via [Github Issues](https://github.com/microsoft/bing-search-sdk-for-java/issues).
+
+## Navigating the repository
+
+### Master branch
+
+The master branch has the most recent code with new features and bug fixes. 
 
 ## Contributing
 

@@ -18,9 +18,11 @@ This sample checks the spelling for the query "Bill Gatas" (with market and mode
 ### Clone and run
 
 Execute the following from a command line:
-1. `git clone https://github.com/microsoft/bing-search-sdk-for-java.git`
-2. `cd bing-search-sdk-for-java/samples/java/com/microsoft/bing/samples/sdk/SpellCheckSample`
-1. `mvn compile exec:java cleanupDaemonThreads = false`
+1. git clone https://github.com/microsoft/bing-search-sdk-for-java.git
+2. cd bing-search-sdk-for-java/samples/java/com/microsoft/bing/samples/sdk/SpellCheckSample
+3. Set a system environment variable named `BING_SAMPLES_API_KEY` and add your subscription key value. Reopen your command prompt or IDE. If not, you might get an API key not found exception.
+4. set env variable `BING_SEARCH_V7_ENDPOINT` to your account Endpoint.
+5. mvn compile exec:java cleanupDaemonThreads = false
 
 ## More information 
 

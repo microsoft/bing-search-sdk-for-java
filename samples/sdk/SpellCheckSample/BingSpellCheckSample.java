@@ -93,7 +93,7 @@ public class BingSpellCheckSample {
             // Authenticate
             // Set the BING_SEARCH_V7_SUBSCRIPTION_KEY environment variable with your subscription key, 
             // then reopen your command prompt or IDE. If not, you may get an API key not found exception.
-            final String subscriptionKey = System.getenv("AZURE_BING_SAMPLES_API_KEY");
+            final String subscriptionKey = System.getenv("BING_SAMPLES_API_KEY");
 
             // Add your Bing Search V7 endpoint to your environment variables.
             String endpoint = System.getenv("BING_SEARCH_V7_ENDPOINT") + "/v7.0";

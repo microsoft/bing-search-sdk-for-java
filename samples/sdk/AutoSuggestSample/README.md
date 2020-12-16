@@ -28,6 +28,7 @@ To get these samples running locally, simply get the pre-requisites above, then:
 1. git clone https://github.com/microsoft/bing-search-sdk-for-java.git
 2. cd bing-search-sdk-for-java/samples/java/com/microsoft/bing/samples/sdk/AutoSuggestSample
 3. set env variable BING_AUTOSUGGEST_SUBSCRIPTION_KEY to your account API key.
+4. set env variable `BING_AUTOSUGGEST_ENDPOINT` to your account Endpoint.
 5. mvn compile exec:java
 
 ## More information ##
